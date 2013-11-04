@@ -30,8 +30,8 @@ public class UserInfo implements Serializable{
     private int followers;
 
     @OneToOne
-//    @JoinColumn(name = "user_id")
-    @PrimaryKeyJoinColumn
+    @JoinColumn(name = "user_id")
+//    @PrimaryKeyJoinColumn
     private User user;
 
     @OneToMany (mappedBy = "userInfo")
@@ -81,12 +81,12 @@ public class UserInfo implements Serializable{
         this.followers = followers;
     }
 
-//    public User getUser() {
-//        return user;
-//    }
-//
-//    public void setUser(User user) {
-//        this.user = user;
-//    }
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }
 

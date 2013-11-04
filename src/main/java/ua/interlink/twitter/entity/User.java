@@ -25,8 +25,11 @@ public class User implements Serializable {
 
     private Date created;
 
+    @Column (name = "full_name")
+    private String fullName;
+
     @OneToOne(mappedBy = "user")
-    @SuppressWarnings("JpaAttributeTypeInspection")
+//    @SuppressWarnings("JpaAttributeTypeInspection")
     private UserInfo userInfo;
 
     public User() {
@@ -63,5 +66,13 @@ public class User implements Serializable {
 
     public void setCreated(Date created) {
         this.created = created;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 }

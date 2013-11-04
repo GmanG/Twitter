@@ -34,4 +34,9 @@ public class UserService {
         }
         return true;
     }
+
+    @Transactional
+    public User getUserByEmail(String email) {
+        return userDAO.getUserByEmail(email);
+    }
 }

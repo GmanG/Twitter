@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ua.interlink.twitter.dao.UserInfoDAO;
+import ua.interlink.twitter.entity.User;
 import ua.interlink.twitter.entity.UserInfo;
 
 import javax.transaction.Transaction;
@@ -24,5 +25,10 @@ public class UserInfoService {
     @Transactional
     public UserInfo getUserInfoByName(String name) {
         return userInfoDAO.getUserInfoByName(name);
+    }
+
+    @Transactional
+    public void addUserFullName(String fullname, User user) {
+        userInfoDAO.addUserFullName(fullname, user);
     }
 }

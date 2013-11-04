@@ -51,7 +51,8 @@
                 var email = "user1@gmail.com";
                 var password = "pass";
                 $.ajax({
-                    type: "GET",
+                    type: "POST" +
+                            "",
                     url: "usercheck",
                     data: {email:email, password:password},
                     success: function() {
@@ -64,19 +65,20 @@
             }
         };
 
-        var Register = {
+        var Registration = {
 
             register: function() {
-                var mail = $("#email-register").val();
-                var pass = $("#register-password").val();
-                console.log(mail+" :=====: "+pass);
+                var fullName = $("#name-register").val();
+                var email = $("#email-register").val();
+                var password = $("#register-password").val();
+
 //                $("#register-button").click( function() {
 //                    console.log(mail+" :=====: "+pass);
 //                })
                 $.ajax({
-                    url: "register",
+                    url: "registration",
                     type: "POST",
-                    data: {mail: mail, pass: pass},
+                    data: {fullName:fullName, email: email, password: password },
                     success: function() {
 
                     },
@@ -193,9 +195,10 @@
 
                 <div id="register" class="main-page">
                     Register:
+                    <input type="email" class="form-control" id="name-register" placeholder="Full Name">
                     <input type="email" class="form-control" id="email-register" placeholder="Email">
                     <input type="password" class="form-control" id="register-password" placeholder="Password">
-                    <button type="button" id="register-button"  class="btn btn-primary btn-sm" onclick="javascript: Register.register();">Register</button>
+                    <button type="button" id="register-button"  class="btn btn-primary btn-sm" onclick="javascript: Registration.register();">Register</button>
                 </div>
             </div>
         </div>

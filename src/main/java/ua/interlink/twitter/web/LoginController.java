@@ -2,6 +2,7 @@ package ua.interlink.twitter.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,17 +23,17 @@ public class LoginController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping (value = "/usercheck", method = RequestMethod.GET)
+    @RequestMapping (value = "/usercheck", method = RequestMethod.POST)
 //    @ResponseBody
-    public String getUserByEmailAndPassword(@RequestParam String email, @RequestParam String password) {
+    public String getUserByEmailAndPassword(Model model, @RequestParam String email, @RequestParam String password) {
         boolean isExist = false;
         isExist = userService.getUserByEmailAndPassword(email, password);
-        if(isExist) {
+        if(!isExist) {
             System.out.println("if "+isExist);
-            return "redirect:error.jsp";
+            return "redirect:/error.jsp";
         }
         System.out.println(isExist);
-        return "redirect:home";
+        return "redirect:/twitts.jsp";
     }
     @RequestMapping (value = "/error", method = RequestMethod.GET)
     public String getError() {
