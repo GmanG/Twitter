@@ -33,7 +33,7 @@ public class TweetService {
     }
 
     @Transactional
-    public List<Tweet> getTweets(UserInfo userInfo) {
+    public List getTweets(UserInfo userInfo) {
         return tweetDAO.getTweetsByUser(userInfo);
     }
 }

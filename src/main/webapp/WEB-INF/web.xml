@@ -23,23 +23,6 @@
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
-    <listener>
-        <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
-    </listener>
-
-    <!--<filter>-->
-        <!--<filter-name>OpenSessionInViewFilter</filter-name>-->
-        <!--<filter-class>org.springframework.orm.hibernate3.support.OpenSessionInViewFilter</filter-class>-->
-    <!--</filter>-->
-    <!--<filter-mapping>-->
-        <!--<filter-name>OpenSessionInViewFilter</filter-name>-->
-        <!--<url-pattern>/*</url-pattern>-->
-    <!--</filter-mapping>-->
-
-    <!--<filter-mapping>-->
-        <!--<filter-name>OpenSessionInViewFilter</filter-name>-->
-        <!--<servlet-name>appServlet</servlet-name>-->
-    <!--</filter-mapping>-->
     <!-- ccs and js -->
     <servlet-mapping>
         <servlet-name>default</servlet-name>
@@ -49,4 +32,9 @@
         <servlet-name>default</servlet-name>
         <url-pattern>*.js</url-pattern>
     </servlet-mapping>
+
+    <listener>
+        <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+    </listener>
+
 </web-app>

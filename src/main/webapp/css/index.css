@@ -1,5 +1,52 @@
+body {
+    background: radial-gradient(circle, #94D2F8, #3A92C8) repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
 #main {
-    width: 100px;
-    height: 100px;
-    background-color: red;
+    width: 80%;
+    height: 800px;
+    margin: 20px auto;
+    /*background-color: red;*/
+    border: 1px solid black;
+}
+#right {
+    width: 80%;
+    height: 600px;
+    border: 1px solid blue;
+    float: left;
+}
+#left {
+    width: 15%;
+    height: 600px;
+    border: 1px solid red;
+    float: left;
+}
+#welcome {
+    width: 450px;
+    height: 320px;
+    border: 1px solid black;
+    float: left;
+}
+#login {
+    width: 350px;
+    height: 150px;
+    border: 1px solid black;
+    margin: 0 20px;
+
+}
+#register {
+    width: 350px;
+    height: 150px;
+    border: 1px solid black;
+    margin: 20px;
+}
+.main-page {
+    border-radius: 4px;
+    background-color: white;
+}
+#login-register {
+    float: left;
+}
+#exampleInputPassword1 {
+    width: 160px;
+    margin-top: 5px;;
 }

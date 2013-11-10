@@ -17,26 +17,34 @@ import ua.interlink.twitter.service.UserService;
  * To change this template use File | Settings | File Templates.
  */
 @Controller
-@RequestMapping (value = "/")
+//@RequestMapping (value = "/")
 public class LoginController {
 
     @Autowired
     private UserService userService;
 
-    @RequestMapping (value = "/usercheck", method = RequestMethod.POST)
+    @RequestMapping (value = "/usercheck", method = RequestMethod.GET)
 //    @ResponseBody
     public String getUserByEmailAndPassword(Model model, @RequestParam String email, @RequestParam String password) {
         boolean isExist = false;
         isExist = userService.getUserByEmailAndPassword(email, password);
         if(!isExist) {
             System.out.println("if "+isExist);
-            return "redirect:/error.jsp";
+            return "redirect:/error";
         }
+//        model.
+        model.addAttribute("email", email);
         System.out.println(isExist);
-        return "redirect:/twitts.jsp";
+        return "redirect:/twitts";
     }
+
     @RequestMapping (value = "/error", method = RequestMethod.GET)
     public String getError() {
         return "error";
+    }
+
+    @RequestMapping (value = "/twitts", method = RequestMethod.GET)
+    public String getTweets() {
+        return "twitts";
     }
 }

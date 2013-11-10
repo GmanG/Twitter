@@ -28,7 +28,13 @@ public class UserInfoService {
     }
 
     @Transactional
+    public UserInfo getUserInfoById(int id) {
+        return userInfoDAO.getUserInfoById(id);
+    }
+
+    @Transactional
     public void addUserFullName(String fullname, User user) {
         userInfoDAO.addUserFullName(fullname, user);
     }
+
 }

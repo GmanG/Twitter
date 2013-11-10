@@ -36,6 +36,12 @@ public class UserInfo implements Serializable{
 
     @OneToMany (mappedBy = "userInfo")
     private Set<Tweet> tweets;
+    @OneToMany (mappedBy = "listenerId")
+    private Set<Follower> followersListenerId;
+
+    @OneToMany (mappedBy = "ownerId")
+    private Set<Follower> followersOwnerId ;
+
 
     public UserInfo() {
 

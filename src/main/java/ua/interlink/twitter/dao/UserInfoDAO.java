@@ -21,8 +21,19 @@ public class UserInfoDAO {
     @Autowired
     private SessionFactory sessionFactory;
 
+    private Long tweetCount;
+
     public UserInfo getUserInfoByName(String name) {
-        return (UserInfo) sessionFactory.getCurrentSession().createQuery("from UserInfo ui where ui.userNick=:name").setParameter("name", name).uniqueResult();
+        UserInfo userInfo = (UserInfo) sessionFactory.getCurrentSession().createQuery("from UserInfo ui where ui.userNick=:name").setParameter("name", name).uniqueResult();
+//        return (UserInfo) sessionFactory.getCurrentSession().createQuery("from UserInfo ui where ui.userNick=:name").setParameter("name", name).uniqueResult();
+//        tweetCount = sessionFactory.getCurrentSession().createQuery("select count(*) from UserInfo ").uniqueResult().longValue();
+        return userInfo;
+    }
+    public UserInfo getUserInfoById(int id) {
+        UserInfo userInfo = (UserInfo) sessionFactory.getCurrentSession().createQuery("from UserInfo ui where ui.id=:id").setParameter("id", id).uniqueResult();
+//        return (UserInfo) sessionFactory.getCurrentSession().createQuery("from UserInfo ui where ui.userNick=:name").setParameter("name", name).uniqueResult();
+//        tweetCount = sessionFactory.getCurrentSession().createQuery("select count(*) from UserInfo ").uniqueResult().longValue();
+        return userInfo;
     }
 
     public void addUserFullName(String fullName, User user) {

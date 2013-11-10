@@ -8,5 +8,6 @@
         <mapping class="ua.interlink.twitter.entity.User" />
         <mapping class="ua.interlink.twitter.entity.UserInfo" />
         <mapping class="ua.interlink.twitter.entity.Tweet" />
+        <mapping class="ua.interlink.twitter.entity.Follower" />
     </session-factory>
 </hibernate-configuration>

@@ -1,14 +1,11 @@
 package ua.interlink.twitter.web;
 
-import com.google.gson.Gson;
+
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.map.ObjectWriter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import ua.interlink.twitter.entity.Tweet;
 import ua.interlink.twitter.entity.UserInfo;
 import ua.interlink.twitter.service.TweetService;
@@ -54,7 +51,7 @@ public class TweetController {
     @ResponseBody
     public String getTweets(/*@RequestParam String userName*/) {
         UserInfo userInfo = userInfoService.getUserInfoByName("TestDev");
-        List<Tweet> tweets = tweetService.getTweets(userInfo);
+        List tweets = tweetService.getTweets(userInfo);
         String result = "";
         ObjectWriter mapper = new ObjectMapper().writer().withDefaultPrettyPrinter();
         try {
@@ -63,6 +60,16 @@ public class TweetController {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }
         return result;
+    }
+
+    @RequestMapping (value = "/{userName}", method = RequestMethod.GET)
+    @ResponseBody
+    public String shoTweets(@PathVariable String userName) {
+        UserInfo userInfo = userInfoService.getUserInfoByName("TestDev");
+        if(userInfo == null) {
+            return "redirect:/";
+        }
+        return null;
     }
 
 }

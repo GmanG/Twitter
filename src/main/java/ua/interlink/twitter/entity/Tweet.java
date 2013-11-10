@@ -20,6 +20,7 @@ public class Tweet implements Serializable {
 
     private String tweet;
 
+    @Temporal(TemporalType.TIMESTAMP)
     private Date created;
 
     @ManyToOne

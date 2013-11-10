@@ -25,7 +25,7 @@ public class UserController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String home() {
-        return "home";
+        return "index";
     }
 
     @RequestMapping (value = "getuser", method =  RequestMethod.GET)
